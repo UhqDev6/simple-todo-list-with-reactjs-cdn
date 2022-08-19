@@ -370,7 +370,6 @@
                     return setMessage('data tidak boleh kosong');
                 }
                 setMessage('');
-
                 if(edit.id){
                    const updateTodo = {
                     ... edit,
@@ -383,10 +382,11 @@
 
                    const updateTodos = [
                         ... todos
-                   ]
+                   ];
 
                    updateTodos[editTodoIndex] = updateTodo;
                    setTodos(updateTodos);
+                   setActivity('');
 
                    return
                 }
@@ -411,11 +411,14 @@
             const editTodoHandler = (todo) => {
                 setActivity(todo.activity);
                 setEdit(todo);
+                setMessage('');
+
             }
 
             const resetTodoHandler = () => {
                 setEdit({});
                 setActivity('');
+                setMessage('');
             }
 
             const removeTodoHandler = (todoId) => {
@@ -446,43 +449,64 @@
 
             return (
                 <>
-                    <h1 className="title">Simple Todo List</h1>
-                    <form onSubmit = {saveTodoHandler}>
-                        <input
-                            type="text"
-                            value={activity}
-                            placeholder="What Activities Today"
-                            onChange={(event)=> {
-                                setActivity(event.target.value);
-                            }}
-                        />
-                        <button type="submit">{edit.id ? "Edit to Data " : "Save to Data" }</button>
-                        {edit.id &&
-                            <button onClick={resetTodoHandler}>Reset</button>
-                        }
-                    </form>
-                    <ul>
-                    {message && <div style={{color: 'red',fontSize: '30px'}}>{message}</div>}
-                        {todos.map((todo)=> {
-                            return (
-                                <li key={todo.id}>
+                    <header>
+                        <h1 className="title">Simple Todo List</h1>
+                    </header>
+                    <div className="wrapper">
+                        <div className="container bg-white shadow">
+                            <h2 className="container-header text-center">Tambah Activity</h2>
+                            <form onSubmit = {saveTodoHandler}>
+                                <div className="form-group form-title">
+                                    <label for="title">Masukkan yang harus dilakukan</label>
                                     <input
-                                        type="checkbox"
-                                        onChange={()=> {
-                                            doneTodoHandler(todo);
+                                        type="text"
+                                        value={activity}
+                                        placeholder="What Activities Today"
+                                        onChange={(event)=> {
+                                            setActivity(event.target.value);
                                         }}
                                     />
-                                    {todo.activity} {" "}{todo.done ? <i>Selesai</i> : <i>Belum Selesai</i>}
-                                    <button onClick={()=> {
-                                        editTodoHandler(todo);
-                                    }}>edit</button>
-                                    <button onClick={()=> {
-                                        removeTodoHandler(todo.id);
-                                    }}>hapus</button>
-                                </li>
-                            );
-                        })}
-                    </ul>
+                                </div>
+                                <button className="btn-submit" type="submit">{edit.id ? "Edit to Data " : "Save to Data" }</button>
+                                {edit.id &&
+                                    <button className="btn-submit" onClick={resetTodoHandler}> Reset</button>
+                                }
+                            </form>
+                        </div>
+
+                        <div className="container">
+                        <h3 className="container-header">List Item</h3>
+                        {message && <div style={{color: '#F24A72',fontSize: '15px'}}>{message}</div>}
+                            {todos.map((todo)=> {
+                                return (
+                                    <div className="list-item" key={todo.id}>
+                                        <div className="data-item">
+                                            <div className="row-ceklis">
+                                            <input
+                                                type="checkbox"
+                                                onChange={()=> {
+                                                    doneTodoHandler(todo);
+                                                }}
+                                            />
+                                            </div>
+                                            <div className="row-desc">
+                                                <p>{todo.activity} {" "}{todo.done ? <b>Selesai</b> : <b>Belum Selesai</b>}</p>
+                                            </div>
+                                            <div className="row-btn">
+                                                <button className="btn-edit" onClick={()=> {
+                                                    editTodoHandler(todo);
+                                                }}>edit</button>
+                                                <button className="btn-delete" onClick={()=> {
+                                                    removeTodoHandler(todo.id);
+                                                }}>hapus</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                    </div>
+                    </div>
                 </>
             );
         }

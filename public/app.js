@@ -343,6 +343,7 @@ const App = () => {
       const updateTodos = [...todos];
       updateTodos[editTodoIndex] = updateTodo;
       setTodos(updateTodos);
+      setActivity('');
       return;
     }
 
@@ -364,11 +365,13 @@ const App = () => {
   const editTodoHandler = todo => {
     setActivity(todo.activity);
     setEdit(todo);
+    setMessage('');
   };
 
   const resetTodoHandler = () => {
     setEdit({});
     setActivity('');
+    setMessage('');
   };
 
   const removeTodoHandler = todoId => {
@@ -392,44 +395,71 @@ const App = () => {
     setTodos(updateChakeds);
   };
 
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("header", null, /*#__PURE__*/React.createElement("h1", {
     className: "title"
-  }, "Simple Todo List"), /*#__PURE__*/React.createElement("form", {
+  }, "Simple Todo List")), /*#__PURE__*/React.createElement("div", {
+    className: "wrapper"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "container bg-white shadow"
+  }, /*#__PURE__*/React.createElement("h2", {
+    className: "container-header text-center"
+  }, "Tambah Activity"), /*#__PURE__*/React.createElement("form", {
     onSubmit: saveTodoHandler
-  }, /*#__PURE__*/React.createElement("input", {
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "form-group form-title"
+  }, /*#__PURE__*/React.createElement("label", {
+    for: "title"
+  }, "Masukkan yang harus dilakukan"), /*#__PURE__*/React.createElement("input", {
     type: "text",
     value: activity,
     placeholder: "What Activities Today",
     onChange: event => {
       setActivity(event.target.value);
     }
-  }), /*#__PURE__*/React.createElement("button", {
+  })), /*#__PURE__*/React.createElement("button", {
+    className: "btn-submit",
     type: "submit"
   }, edit.id ? "Edit to Data " : "Save to Data"), edit.id && /*#__PURE__*/React.createElement("button", {
+    className: "btn-submit",
     onClick: resetTodoHandler
-  }, "Reset")), /*#__PURE__*/React.createElement("ul", null, message && /*#__PURE__*/React.createElement("div", {
+  }, " Reset"))), /*#__PURE__*/React.createElement("div", {
+    className: "container"
+  }, /*#__PURE__*/React.createElement("h3", {
+    className: "container-header"
+  }, "List Item"), message && /*#__PURE__*/React.createElement("div", {
     style: {
-      color: 'red',
-      fontSize: '30px'
+      color: '#F24A72',
+      fontSize: '15px'
     }
   }, message), todos.map(todo => {
-    return /*#__PURE__*/React.createElement("li", {
+    return /*#__PURE__*/React.createElement("div", {
+      className: "list-item",
       key: todo.id
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "data-item"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "row-ceklis"
     }, /*#__PURE__*/React.createElement("input", {
       type: "checkbox",
       onChange: () => {
         doneTodoHandler(todo);
       }
-    }), todo.activity, " ", " ", todo.done ? /*#__PURE__*/React.createElement("i", null, "Selesai") : /*#__PURE__*/React.createElement("i", null, "Belum Selesai"), /*#__PURE__*/React.createElement("button", {
+    })), /*#__PURE__*/React.createElement("div", {
+      className: "row-desc"
+    }, /*#__PURE__*/React.createElement("p", null, todo.activity, " ", " ", todo.done ? /*#__PURE__*/React.createElement("b", null, "Selesai") : /*#__PURE__*/React.createElement("b", null, "Belum Selesai"))), /*#__PURE__*/React.createElement("div", {
+      className: "row-btn"
+    }, /*#__PURE__*/React.createElement("button", {
+      className: "btn-edit",
       onClick: () => {
         editTodoHandler(todo);
       }
     }, "edit"), /*#__PURE__*/React.createElement("button", {
+      className: "btn-delete",
       onClick: () => {
         removeTodoHandler(todo.id);
       }
-    }, "hapus"));
-  })));
+    }, "hapus"))));
+  }))));
 };
 
 ReactDOM.render( /*#__PURE__*/React.createElement(App, null), root);

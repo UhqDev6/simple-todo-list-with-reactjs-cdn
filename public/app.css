@@ -1,5 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+* {
+    font-family: 'Raleway', sans-serif;
+}
 body {
     margin: 0 auto;
+    font-family: 'Raleway', sans-serif;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .box {
@@ -10,4 +18,231 @@ body {
 
 .title {
     text-align: center;
+}
+
+header {
+    background-color: #AFB4FF;
+    padding: 16px;
+    color: #fff;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrapper .container {
+    width: 1024px;
+    border-radius: 8px;
+    margin: 16px;
+    background: #F8F9FA;
+    padding: 16px;
+    flex-grow: 1;
+    height: fit-content;
+}
+
+
+.item {
+    border-radius: 16px;
+    margin-top: 16px;
+    padding: 12px 24px 12px 24px;
+    background: white;
+    display: flex;
+    align-items: center;
+}
+
+.item > .inner h2 {
+    margin-bottom: unset;
+}
+
+.item > .inner p {
+    margin-top: 5px;
+}
+
+.form {
+    display: flex;
+    padding: 16px;
+    flex-direction: column;
+    height: 300px;
+    border-radius: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 4px;
+    font-size: 18px;
+    font-weight: lighter;
+}
+
+.shadow {
+    box-shadow: 0 5px 10px rgba(154, 160, 185, .05), 0 15px 40px rgba(166, 173, 201, .2);
+}
+
+input[type=text], input[type=date] {
+    font-family: Raleway, sans-serif;
+    background: #F5F1FF;
+    border: 2px solid #AFB4FF;
+    border-radius: 8px;
+    padding: 16px;
+    box-sizing: border-box;
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+.btn-submit {
+    width: fit-content;
+    font-family: Raleway, sans-serif;
+    border-radius: 16px;
+    padding: 12px 24px;
+    border: 2px solid #AFB4FF;
+    color: black;
+    font-size: 18px;
+    margin-top: auto;
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background: #AFB4FF;
+    color: white;
+}
+
+input[type=text], input[type=date], .btn-submit:focus {
+    outline: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.form-title {
+    margin: auto 0;
+}
+
+.check-button {
+    width: 40px;
+    height: 40px;
+
+    background: url('../icon/check-outline.svg');
+    background-size: contain;
+    margin-left: auto;
+    cursor: pointer;
+    border: none;
+}
+
+.check-button:hover {
+    background: url('../icon/check-solid.svg');
+    background-size: contain;
+}
+
+.trash-button {
+    width: 40px;
+    height: 40px;
+
+    background: url('../icon/trash-outline.svg');
+    background-size: contain;
+    margin-left: 16px;
+    cursor: pointer;
+    border: none;
+}
+
+.trash-button:hover {
+    background: url('../icon/trash-fill.svg');
+    background-size: contain;
+}
+
+.undo-button {
+    width: 40px;
+    height: 40px;
+
+    background: url('../icon/undo-ouline.svg');
+    background-size: contain;
+    margin-left: auto;
+    cursor: pointer;
+    border: none;
+}
+
+.undo-button:hover {
+    background: url('../icon/undo-ouline.svg');
+    background-size: contain;
+}
+
+.check-button:focus, .trash-button {
+    outline: none;
+}
+
+.btn-edit {
+    font-family: Raleway, sans-serif;
+    border-radius: 16px;
+    padding: 10px;
+    background-color: #F5F1FF;
+    border: 2px solid #AFB4FF;
+    color: black;
+    font-size: 14px;
+    position: relative;
+    cursor: pointer;
+    width:90px;
+}
+.btn-delete {
+    font-family: Raleway, sans-serif;
+    border-radius: 16px;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 2px solid #AFB4FF;
+    color: black;
+    font-size: 14px;
+    position: relative;
+    cursor: pointer;
+    width:90px;
+}
+
+.btn-edit:hover,
+.btn-delete:hover {
+    background: #AFB4FF;
+    color: white;
+}
+
+.data-item {
+    display: flex;
+    background-color: #AFB4FF;
+}
+
+.row-ceklis {
+    flex-grow: 1;
+    background-color: #AFB4;
+    width: 5%
+}
+.row-desc {
+    flex-grow: 2;
+    background-color: #AFB;
+    width: 60%
+}
+.row-btn {
+    flex-grow: 2;
+    background-color: #AFf;
+    width: 30%
+}
+
+
+@media only screen and (max-width: 1024px) {
+    .wrapper {
+        margin: 0;
+    }
+
+    .wrapper .container {
+        width: 100%;
+    }
+
+    .list-item {
+        width: 90%;
+    }
+
+    .form {
+        width: 100%;
+    }
 }
