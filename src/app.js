@@ -469,7 +469,7 @@
                                 </div>
                                 <button className="btn-submit" type="submit">{edit.id ? "Edit to Data " : "Save to Data" }</button>
                                 {edit.id &&
-                                    <button className="btn-submit" onClick={resetTodoHandler}> Reset</button>
+                                    <button className="btn-reset" onClick={resetTodoHandler}> Reset</button>
                                 }
                             </form>
                         </div>
@@ -490,7 +490,7 @@
                                             />
                                             </div>
                                             <div className="row-desc">
-                                                <p>{todo.activity} {" "}{todo.done ? <b>Selesai</b> : <b>Belum Selesai</b>}</p>
+                                                <p>{todo.activity} <span>{todo.done ? <b>Selesai</b> : <b>Belum Selesai</b>}</span></p>
                                             </div>
                                             <div className="row-btn">
                                                 <button className="btn-edit" onClick={()=> {

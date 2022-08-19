@@ -420,7 +420,7 @@ const App = () => {
     className: "btn-submit",
     type: "submit"
   }, edit.id ? "Edit to Data " : "Save to Data"), edit.id && /*#__PURE__*/React.createElement("button", {
-    className: "btn-submit",
+    className: "btn-reset",
     onClick: resetTodoHandler
   }, " Reset"))), /*#__PURE__*/React.createElement("div", {
     className: "container"
@@ -446,7 +446,7 @@ const App = () => {
       }
     })), /*#__PURE__*/React.createElement("div", {
       className: "row-desc"
-    }, /*#__PURE__*/React.createElement("p", null, todo.activity, " ", " ", todo.done ? /*#__PURE__*/React.createElement("b", null, "Selesai") : /*#__PURE__*/React.createElement("b", null, "Belum Selesai"))), /*#__PURE__*/React.createElement("div", {
+    }, /*#__PURE__*/React.createElement("p", null, todo.activity, " ", /*#__PURE__*/React.createElement("span", null, todo.done ? /*#__PURE__*/React.createElement("b", null, "Selesai") : /*#__PURE__*/React.createElement("b", null, "Belum Selesai")))), /*#__PURE__*/React.createElement("div", {
       className: "row-btn"
     }, /*#__PURE__*/React.createElement("button", {
       className: "btn-edit",

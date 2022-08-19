@@ -86,7 +86,7 @@ header {
 input[type=text], input[type=date] {
     font-family: Raleway, sans-serif;
     background: #F5F1FF;
-    border: 2px solid #AFB4FF;
+    border: 1px solid #AFB4FF;
     border-radius: 8px;
     padding: 16px;
     box-sizing: border-box;
@@ -99,12 +99,27 @@ input[type=text], input[type=date] {
     font-family: Raleway, sans-serif;
     border-radius: 16px;
     padding: 12px 24px;
-    border: 2px solid #AFB4FF;
+    background: #F5F1FF;
+    border: 1px solid #AFB4FF;
     color: black;
     font-size: 18px;
     margin-top: auto;
     align-self: flex-end;
     cursor: pointer;
+}
+.btn-reset {
+    width: fit-content;
+    font-family: Raleway, sans-serif;
+    border-radius: 16px;
+    padding: 12px 24px;
+    background: #F5F1FF;
+    border: 1px solid #AFB4FF;
+    color: black;
+    font-size: 18px;
+    margin-top: auto;
+    align-self: flex-end;
+    cursor: pointer;
+    margin-left: 10px;
 }
 
 .btn-submit:hover {
@@ -181,24 +196,26 @@ input[type=text], input[type=date], .btn-submit:focus {
     border-radius: 16px;
     padding: 10px;
     background-color: #F5F1FF;
-    border: 2px solid #AFB4FF;
+    border: 1px solid #AFB4FF;
     color: black;
     font-size: 14px;
     position: relative;
     cursor: pointer;
     width:90px;
+
 }
 .btn-delete {
     font-family: Raleway, sans-serif;
     border-radius: 16px;
     padding: 10px;
     background-color: #ffffff;
-    border: 2px solid #AFB4FF;
+    border: 1px solid #AFB4FF;
     color: black;
     font-size: 14px;
     position: relative;
     cursor: pointer;
     width:90px;
+    margin-left: 10px;
 }
 
 .btn-edit:hover,
@@ -209,23 +226,44 @@ input[type=text], input[type=date], .btn-submit:focus {
 
 .data-item {
     display: flex;
-    background-color: #AFB4FF;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin-top: 12px;
 }
 
 .row-ceklis {
     flex-grow: 1;
-    background-color: #AFB4;
+    /* background-color: #AFB4; */
     width: 5%
+}
+.row-ceklis input {
+    position: relative;
+    top:17px;
+    margin: 0 auto;
+    left: 25px;
 }
 .row-desc {
     flex-grow: 2;
-    background-color: #AFB;
+    /* background-color: #AFB; */
     width: 60%
+}
+.row-desc p span {
+    font-weight: bold;
+    width: 40px;
+    background-color: #F5F1FF;
+    padding: 8px;
+    border-radius: 15px;
+    font-size: 12px;
 }
 .row-btn {
     flex-grow: 2;
-    background-color: #AFf;
+    /* background-color: #AFf; */
     width: 30%
+}
+.row-btn button {
+    position: relative;
+    top: 5px;
+    left: 120px;
 }
 
 
